@@ -8,6 +8,7 @@ using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.IO;
 
 namespace inlämningsuppgift3
 {
@@ -17,18 +18,22 @@ namespace inlämningsuppgift3
 
         private string loggedInUsername;
 
-        public BankAccounts loggedInAccount;
+        private BankAccounts loggedInAccount;
 
-        
+        private BankAccountsManager accountsManager;
 
 
-        public LoggedIn(LoginScreen loginScreen, BankAccounts loggedInAccount, string loggedInUsername)
+
+
+        public LoggedIn(LoginScreen loginScreen, BankAccounts loggedInAccount, string loggedInUsername, BankAccountsManager accountsManager)
         {
             InitializeComponent();
             this.loginScreen = loginScreen;
             this.loggedInAccount = loggedInAccount;
             this.loggedInUsername = loggedInUsername;
+            this.accountsManager = accountsManager;
 
+            
             LoadTransactions();
             DisplayBalance();
         }
@@ -61,7 +66,7 @@ namespace inlämningsuppgift3
                 MessageBox.Show($"Deposit of {depositAmount} successful!");
                 transactionListBox.Items.Add("+ " + depositAmount);
 
-                SaveTransactions();
+                //SaveTransactions();
                 DisplayBalance();
             }
             else
@@ -69,17 +74,19 @@ namespace inlämningsuppgift3
                 MessageBox.Show("Insufficient funds or invalid withdrawal amount.");
             }
         }
+
+
         public void DisplayBalance()
         {
-            int balance = loggedInAccount.ViewBalance(loggedInUsername);
+            int balance = accountsManager.ViewBalance(loggedInUsername);
             balanceLabel.Text = $"{balance}";
         }
 
-        private void SaveTransactions() 
+        private void SaveTransactions()
         {
             using (StreamWriter sw = new StreamWriter("transactions.csv"))
             {
-                foreach(string transaction in  transactionListBox.Items)
+                foreach (string transaction in transactionListBox.Items)
                 {
                     sw.WriteLine(transaction);
                 }
@@ -90,9 +97,9 @@ namespace inlämningsuppgift3
         {
             if (File.Exists("transactions.csv"))
             {
-                using(StreamReader sr = new StreamReader("transactions.csv"))
+                using (StreamReader sr = new StreamReader("transactions.csv"))
                 {
-                    while(!sr.EndOfStream)
+                    while (!sr.EndOfStream)
                     {
                         string transaction = sr.ReadLine();
                         transactionListBox.Items.Add(transaction);
@@ -122,18 +129,18 @@ namespace inlämningsuppgift3
                 }
                 // Call the UpdateBalanceAfterWithdrawal method
                 UpdateBalanceAfterWithdrawal(withdrawalAmount);
-
+                DisplayBalance();
             }
             else
             {
                 MessageBox.Show("Invalid withdrawal amount. Please enter a valid number.");
             }
-            DisplayBalance();
+
         }
 
         private void DepositButton_Click(object sender, EventArgs e)
         {
-            if (int.TryParse(depositAmountTextBox.Text , out int depositAmount))
+            if (int.TryParse(depositAmountTextBox.Text, out int depositAmount))
             {
                 if (depositAmount <= 0)
                 {
@@ -142,13 +149,13 @@ namespace inlämningsuppgift3
                 }
                 // Call the UpdateBalanceAfterWithdrawal method
                 UpdateBalanceAfterDeposit(depositAmount);
-
+                DisplayBalance();
             }
             else
             {
                 MessageBox.Show("Invalid withdrawal amount. Please enter a valid number.");
             }
-            DisplayBalance();
+
         }
     }
 }

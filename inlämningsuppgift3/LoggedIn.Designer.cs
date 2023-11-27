@@ -44,7 +44,7 @@
             // 
             DepositLabel.AutoSize = true;
             DepositLabel.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            DepositLabel.Location = new Point(28, 40);
+            DepositLabel.Location = new Point(30, 71);
             DepositLabel.Name = "DepositLabel";
             DepositLabel.Size = new Size(116, 21);
             DepositLabel.TabIndex = 0;
@@ -53,7 +53,7 @@
             // DepositButton
             // 
             DepositButton.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            DepositButton.Location = new Point(311, 36);
+            DepositButton.Location = new Point(313, 67);
             DepositButton.Name = "DepositButton";
             DepositButton.Size = new Size(99, 29);
             DepositButton.TabIndex = 1;
@@ -65,7 +65,7 @@
             // 
             WithdrawLabel.AutoSize = true;
             WithdrawLabel.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            WithdrawLabel.Location = new Point(28, 82);
+            WithdrawLabel.Location = new Point(30, 113);
             WithdrawLabel.Name = "WithdrawLabel";
             WithdrawLabel.Size = new Size(129, 21);
             WithdrawLabel.TabIndex = 2;
@@ -75,7 +75,7 @@
             // 
             CheckBalanceLabel.AutoSize = true;
             CheckBalanceLabel.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            CheckBalanceLabel.Location = new Point(28, 132);
+            CheckBalanceLabel.Location = new Point(30, 163);
             CheckBalanceLabel.Name = "CheckBalanceLabel";
             CheckBalanceLabel.Size = new Size(129, 21);
             CheckBalanceLabel.TabIndex = 4;
@@ -84,7 +84,7 @@
             // WithdrawButton
             // 
             WithdrawButton.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            WithdrawButton.Location = new Point(311, 76);
+            WithdrawButton.Location = new Point(313, 107);
             WithdrawButton.Name = "WithdrawButton";
             WithdrawButton.Size = new Size(99, 33);
             WithdrawButton.TabIndex = 3;
@@ -107,7 +107,7 @@
             // 
             balanceLabel.AutoSize = true;
             balanceLabel.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            balanceLabel.Location = new Point(181, 132);
+            balanceLabel.Location = new Point(183, 163);
             balanceLabel.Name = "balanceLabel";
             balanceLabel.Size = new Size(66, 21);
             balanceLabel.TabIndex = 7;
@@ -115,7 +115,7 @@
             // 
             // withdrawAmountTextBox
             // 
-            withdrawAmountTextBox.Location = new Point(181, 84);
+            withdrawAmountTextBox.Location = new Point(183, 115);
             withdrawAmountTextBox.Name = "withdrawAmountTextBox";
             withdrawAmountTextBox.Size = new Size(100, 23);
             withdrawAmountTextBox.TabIndex = 8;
@@ -125,14 +125,14 @@
             transactionListBox.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point);
             transactionListBox.FormattingEnabled = true;
             transactionListBox.ItemHeight = 21;
-            transactionListBox.Location = new Point(483, 40);
+            transactionListBox.Location = new Point(484, 67);
             transactionListBox.Name = "transactionListBox";
             transactionListBox.Size = new Size(247, 298);
             transactionListBox.TabIndex = 9;
             // 
             // depositAmountTextBox
             // 
-            depositAmountTextBox.Location = new Point(181, 42);
+            depositAmountTextBox.Location = new Point(183, 73);
             depositAmountTextBox.Name = "depositAmountTextBox";
             depositAmountTextBox.Size = new Size(100, 23);
             depositAmountTextBox.TabIndex = 10;

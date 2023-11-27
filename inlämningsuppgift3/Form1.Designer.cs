@@ -36,6 +36,8 @@
             pictureBox1 = new PictureBox();
             LoginButton = new Button();
             userLabel = new Label();
+            registerButton = new Button();
+            newUserLabel = new Label();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
             // 
@@ -117,12 +119,35 @@
             userLabel.TabIndex = 10;
             userLabel.Text = "Logged Out Username";
             // 
+            // registerButton
+            // 
+            registerButton.BackColor = Color.SeaShell;
+            registerButton.Location = new Point(24, 402);
+            registerButton.Name = "registerButton";
+            registerButton.Size = new Size(113, 44);
+            registerButton.TabIndex = 11;
+            registerButton.Text = "Create Account";
+            registerButton.UseVisualStyleBackColor = false;
+            registerButton.Click += registerButton_Click;
+            // 
+            // newUserLabel
+            // 
+            newUserLabel.AutoSize = true;
+            newUserLabel.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            newUserLabel.Location = new Point(35, 374);
+            newUserLabel.Name = "newUserLabel";
+            newUserLabel.Size = new Size(87, 21);
+            newUserLabel.TabIndex = 12;
+            newUserLabel.Text = "New User?";
+            // 
             // LoginScreen
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.GrayText;
             ClientSize = new Size(806, 469);
+            Controls.Add(newUserLabel);
+            Controls.Add(registerButton);
             Controls.Add(userLabel);
             Controls.Add(LoginButton);
             Controls.Add(pictureBox1);
@@ -148,5 +173,7 @@
         private PictureBox pictureBox1;
         private Button LoginButton;
         private Label userLabel;
+        private Button registerButton;
+        private Label newUserLabel;
     }
 }

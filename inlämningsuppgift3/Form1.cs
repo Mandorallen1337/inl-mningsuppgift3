@@ -4,16 +4,16 @@ namespace inlämningsuppgift3
 {
     public partial class LoginScreen : Form
     {
-        public BankAccounts bankAccounts;
+        public BankAccountsManager accountsManager;
 
         private LoggedIn loggedIn;
-        
+
         public LoginScreen()
         {
             InitializeComponent();
             userLabel.Visible = false;
-            bankAccounts = new BankAccounts();
-            
+            accountsManager = new BankAccountsManager();
+
 
         }
 
@@ -29,21 +29,29 @@ namespace inlämningsuppgift3
             string username = userNameTextBox.Text;
             string password = passwordTextBox.Text;
 
-            
-            BankAccounts loggedInAccount = bankAccounts.Login(username, password);
+
+            BankAccounts loggedInAccount = accountsManager.Login(username, password);
 
             if (loggedInAccount != null)
             {
                 MessageBox.Show($"Welcome, {loggedInAccount.Username}!");
 
-                this.loggedIn = new LoggedIn(this, loggedInAccount, loggedInAccount.Username);
+                this.loggedIn = new LoggedIn(this, loggedInAccount, loggedInAccount.Username, accountsManager);
                 loggedIn.Show();
                 this.Hide();
-                
+
             }
             else
             {
                 MessageBox.Show("Invalid username or password. Please try again.");
+            }
+        }
+
+        private void registerButton_Click(object sender, EventArgs e)
+        {
+            using(CreateAccountForm createAccountForm = new CreateAccountForm(accountsManager))
+            {
+                createAccountForm.ShowDialog();
             }
         }
     }
