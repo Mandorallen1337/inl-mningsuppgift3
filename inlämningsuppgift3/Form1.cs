@@ -26,33 +26,45 @@ namespace inlämningsuppgift3
 
         private void LoginButton_Click(object sender, EventArgs e)
         {
-            string username = userNameTextBox.Text;
-            string password = passwordTextBox.Text;
-
-
-            BankAccounts loggedInAccount = accountsManager.Login(username, password);
-
-            if (loggedInAccount != null)
+            try
             {
-                MessageBox.Show($"Welcome, {loggedInAccount.Username}!");
+                string username = userNameTextBox.Text;
+                string password = passwordTextBox.Text;
 
-                this.loggedIn = new LoggedIn(this, loggedInAccount, loggedInAccount.Username, accountsManager);
-                loggedIn.Show();
-                this.Hide();
 
+                BankAccounts loggedInAccount = accountsManager.Login(username, password);
+
+                if (loggedInAccount != null)
+                {
+                    MessageBox.Show($"Welcome, {loggedInAccount.Username}!");
+
+                    this.loggedIn = new LoggedIn(this, loggedInAccount, loggedInAccount.Username, accountsManager);
+                    loggedIn.Show();
+                    this.Hide();
+
+                }
+                else
+                {
+                    MessageBox.Show("Invalid username or password. Please try again.");
+                }
             }
-            else
+            catch (Exception ex)
             {
-                MessageBox.Show("Invalid username or password. Please try again.");
+                MessageBox.Show($"An error occurred: {ex.Message}");
             }
         }
 
         private void registerButton_Click(object sender, EventArgs e)
         {
-            using(CreateAccountForm createAccountForm = new CreateAccountForm(accountsManager))
+            using (CreateAccountForm createAccountForm = new CreateAccountForm(accountsManager))
             {
                 createAccountForm.ShowDialog();
             }
         }
+
+
+
+
+
     }
 }

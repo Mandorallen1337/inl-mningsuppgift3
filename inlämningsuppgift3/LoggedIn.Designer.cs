@@ -38,6 +38,10 @@
             withdrawAmountTextBox = new TextBox();
             transactionListBox = new ListBox();
             depositAmountTextBox = new TextBox();
+            transactionlabel = new Label();
+            deleteButton = new Button();
+            pictureBox1 = new PictureBox();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
             // 
             // DepositLabel
@@ -95,7 +99,7 @@
             // LogoutButton
             // 
             LogoutButton.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            LogoutButton.Location = new Point(666, 381);
+            LogoutButton.Location = new Point(682, 391);
             LogoutButton.Name = "LogoutButton";
             LogoutButton.Size = new Size(106, 46);
             LogoutButton.TabIndex = 6;
@@ -125,9 +129,9 @@
             transactionListBox.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point);
             transactionListBox.FormattingEnabled = true;
             transactionListBox.ItemHeight = 21;
-            transactionListBox.Location = new Point(484, 67);
+            transactionListBox.Location = new Point(30, 200);
             transactionListBox.Name = "transactionListBox";
-            transactionListBox.Size = new Size(247, 298);
+            transactionListBox.Size = new Size(201, 214);
             transactionListBox.TabIndex = 9;
             // 
             // depositAmountTextBox
@@ -137,11 +141,46 @@
             depositAmountTextBox.Size = new Size(100, 23);
             depositAmountTextBox.TabIndex = 10;
             // 
+            // transactionlabel
+            // 
+            transactionlabel.AutoSize = true;
+            transactionlabel.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            transactionlabel.Location = new Point(84, 420);
+            transactionlabel.Name = "transactionlabel";
+            transactionlabel.Size = new Size(100, 21);
+            transactionlabel.TabIndex = 11;
+            transactionlabel.Text = "Transactions";
+            // 
+            // deleteButton
+            // 
+            deleteButton.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            deleteButton.Location = new Point(264, 391);
+            deleteButton.Name = "deleteButton";
+            deleteButton.Size = new Size(148, 48);
+            deleteButton.TabIndex = 12;
+            deleteButton.Text = "Delete Account";
+            deleteButton.UseVisualStyleBackColor = true;
+            deleteButton.Click += deleteButton_Click;
+            // 
+            // pictureBox1
+            // 
+            pictureBox1.Image = Properties.Resources.ATM2;
+            pictureBox1.Location = new Point(431, 67);
+            pictureBox1.Name = "pictureBox1";
+            pictureBox1.Size = new Size(357, 259);
+            pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
+            pictureBox1.TabIndex = 13;
+            pictureBox1.TabStop = false;
+            // 
             // LoggedIn
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 450);
+            BackColor = SystemColors.ActiveCaption;
+            ClientSize = new Size(825, 468);
+            Controls.Add(pictureBox1);
+            Controls.Add(deleteButton);
+            Controls.Add(transactionlabel);
             Controls.Add(depositAmountTextBox);
             Controls.Add(transactionListBox);
             Controls.Add(withdrawAmountTextBox);
@@ -154,6 +193,7 @@
             Controls.Add(DepositLabel);
             Name = "LoggedIn";
             Text = "LoggedIn";
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -170,5 +210,8 @@
         private TextBox withdrawAmountTextBox;
         private ListBox transactionListBox;
         private TextBox depositAmountTextBox;
+        private Label transactionlabel;
+        private Button deleteButton;
+        private PictureBox pictureBox1;
     }
 }

@@ -113,7 +113,7 @@
             // 
             userLabel.AutoSize = true;
             userLabel.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            userLabel.Location = new Point(587, 425);
+            userLabel.Location = new Point(606, 421);
             userLabel.Name = "userLabel";
             userLabel.Size = new Size(175, 21);
             userLabel.TabIndex = 10;

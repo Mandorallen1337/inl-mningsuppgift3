@@ -13,27 +13,18 @@ namespace inlämningsuppgift3
         public string Username { get; set; }
         public string Password { get; set; }
         public int Balance { get; set; }
-        public List <int> AccountNumber { get; private set; }
+        
+               
 
-       
-
-
-        public BankAccounts(string username = "", string password = "", int balance = 0, int accountNumber = 0)
+        public BankAccounts(string username = "", string password = "", int balance = 0)
         {
             Username = username;
             Password = password;
             Balance = balance;
-            AccountNumber = new List<int>();
-            
+                        
 
         }
-        //Remove?
-        //private static int nextAccountNumber = 1000;
-
-        //private static int GetNextAccountNumber()
-        //{
-        //    return nextAccountNumber++;
-        //}
+      
         public bool Deposit(int amount)
         {
             Balance += amount;
@@ -55,11 +46,8 @@ namespace inlämningsuppgift3
                                     
         }
 
-               
-
-      
+                             
 
         
-
     }
 }
